@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Button Farbwechsel</title>
+    
+    <link rel="" href="aufg3.css"    
+ </head>
+
+
+<body>
+    
+    <h1>Button Farbwechsel</h1>
+    <button id="colorButton">Farbe ändern</button>
+    
+
+    <script>
+        // Funktion zum Generieren einer zufälligen Farbe
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Event-Handler für den Button
+        const button = document.getElementById('colorButton');
+        button.addEventListener('click', function () {
+            const randomColor = getRandomColor();
+            button.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>

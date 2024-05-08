@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zufälliges Passwort Generator</title>
+</head>
+<body>
+    <h1>Zufälliges Passwort Generator</h1>
+    <button onclick="generatePassword()">Generiere Passwort</button>
+    <p id="passwordOutput"></p>
+
+    <script>
+        function generatePassword() {
+            const length = parseInt(prompt('Gib die gewünschte Passwortlänge ein:'));
+            if (isNaN(length) || length <= 0) {
+                alert('Ungültige Eingabe. Bitte gib eine positive Zahl ein.');
+                return;
+            }
+
+            const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset.charAt(randomIndex);
+            }
+
+            document.getElementById('passwordOutput').textContent = 'Generiertes Passwort: ' + password;
+        }
+    </script>
+</body>
+</html>
